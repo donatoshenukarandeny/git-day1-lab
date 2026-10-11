@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.1">
+        <title>Flex Practice</title>
+        <style>
+            .container{
+                display: flex;
+                flex-direction: row;
+                justify-content:space-between;
+                align-items: center;
+                gap: 12px;
+                padding: 20px;
+                background: #eeeeee;
+                min-height: 180px;
+            }
+
+            .item{
+                padding: 24px;
+                background: steelblue;
+                color: white;
+                border-radius: 8px;
+            }
+
+            .navigation{
+                display: flex;
+                gap: 20px;
+            }
+
+            .main-content{
+                flex: 1;
+                min-width: 0;
+            }
+
+            .topbar{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 16px;
+                padding: 16px 24px;
+            }
+
+            .user-info{
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .user-info img{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="item">One</div>
+            <div class="item">Two</div>
+            <div class="item">Three</div>
+        </div>
+
+        <header class="topbar">
+            <h1>Dashboard</h1>
+            <div class="user-info">
+                <span>Welecome back!</span>
+                <img src="images/profile.jpg" alt="User profile">
+            </div>
+        </header>
+    </body>
+
+</html>

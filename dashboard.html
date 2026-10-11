@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A responsive analytics dashboard project"
+    />
+    <title>Analytics Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <aside class="sidebar">
+        <a class="brand" href="dashboard.html">DevBoard</a>
+
+        <nav aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#analytics">Analytics</a></li>
+            <li><a href="#activity">Activity</a></li>
+            <li><a href="#settings">Settings</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <h1>Dashboard</h1>
+          <p>Welcome back!</p>
+        </header>
+
+        <section id="overview" aria-labelledby="overview-title">
+          <h2 id="overview-title">Overview</h2>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <div class="stat-card-header">
+                <h3>Total Users</h3>
+                <span class="status-badge">ACTIVE</span>
+              </div>
+              <p class="stat-value">1,240</p>
+              <p>Users registered</p>
+            </article>
+
+            <article class="stat-card">
+              <h3>Revenue</h3>
+              <p class="stat-value">$8,450</p>
+              <p>Monthly revenue</p>
+            </article>
+
+            <article class="stat-card">
+              <h3>Orders</h3>
+              <p class="stat-value">320</p>
+              <p>Orders received</p>
+            </article>
+
+            <article class="stat-card">
+              <h3>Growth</h3>
+              <p class="stat-value">12%</p>
+              <p>Monthly growth</p>
+            </article>
+          </div>
+        </section>
+
+        <div class="content-grid">
+          <section
+            id="analytics"
+            class="panel"
+            aria-labelledby="analytics-title"
+          >
+            <h2 id="analytics-title">Analytics</h2>
+            <p>Your analytics visualization will go here.</p>
+            <div
+              class="chart-placeholder"
+              role="img"
+              aria-label="Placeholder for an analytics chart"
+            >
+              Chart placeholder
+            </div>
+          </section>
+
+          <section id="activity" class="panel" aria-labelledby="activity-title">
+            <h2 id="activity-title">Recent Activity</h2>
+            <ul class="activity-list">
+              <li>New user registered</li>
+              <li>New order received</li>
+              <li>Monthly report updated</li>
+            </ul>
+          </section>
+        </div>
+
+        <footer class="footer">
+          <p>DevBoard — Day 3 CSS Layout Practice</p>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
