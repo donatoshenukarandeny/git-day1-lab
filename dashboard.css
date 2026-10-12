@@ -1,3 +1,24 @@
+:root {
+  /* Colors */
+  --color-bg: #f5f7fb;
+  --color-surface: #ffffff;
+  --color-text: #1e293b;
+  --color-border: #e2e8f0;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* Shape and layout */
+  --radius-card: 12px;
+  --sidebar-width: 220px;
+  --page-padding: 16px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -5,8 +26,8 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  color: #1f2937;
-  background: #f3f4f6;
+  color: var(--color-text);
+  background: var(--color-bg);
 }
 
 a {
@@ -19,11 +40,6 @@ h2,
 h3,
 p {
   margin-top: 0;
-}
-
-/* 2. Main dashboard layout */
-.dashboard {
-  min-height: 100vh;
 }
 
 /* 3. Sidebar */
@@ -63,30 +79,24 @@ p {
 /* 4. Main content */
 .main-content {
   min-width: 0;
-  padding: 24px;
+  padding: var(--page-padding);
 }
 
 .topbar {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 16px;
+  justify-content: space-between;
+  gap: var(--space-3);
   margin-bottom: 32px;
-}
-
-/* 5. Statistic cards */
-.stats-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
 }
 
 .stat-card,
 .panel {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
+  background: var(--color-surface);
+  padding: var(--space-4);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border);
 }
 
 .stat-card h3,
@@ -95,7 +105,7 @@ p {
 }
 
 .stat-value {
-  font-size: 28px;
+  font-size: clamp(1.25rem, 3vw, 2rem);
   font-weight: bold;
   margin-bottom: 8px;
 }
@@ -131,21 +141,8 @@ p {
 }
 
 @media (min-width: 768px) {
-  .dashboard {
-    display: grid;
-    grid-template-columns: 220px minmax(0, 1fr);
-  }
-
   .sidebar {
     min-height: 100vh;
-  }
-
-  .main-content {
-    padding: 32px;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .content-grid {
@@ -158,20 +155,16 @@ p {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .content-grid{
+  .content-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  #analytics{
+  #analytics {
     grid-column: span 2;
   }
 }
 
 @media (max-width: 480px) {
-  .main-content {
-    padding: 16px;
-  }
-
   .topbar {
     align-items: flex-start;
     flex-direction: column;
@@ -183,7 +176,7 @@ p {
   }
 
   .stat-value {
-    font-size: 24px;
+    font-size: clamp(1.25rem, 3vw, 2rem);
   }
 }
 
@@ -200,4 +193,65 @@ p {
   border-radius: 20px;
   font-size: 12px;
   font-weight: bold;
+}
+
+/* Mobile defaults */
+.dashboard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --page-padding: 24px;
+  }
+
+  .dashboard {
+    grid-template-columns:
+      var(--sidebar-width)
+      minmax(0, 1fr);
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  :root {
+    --page-padding: 32px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  #analytics {
+    grid-column: span 2;
+  }
+}
+
+/* Prevent grid and flex children from forcing overflow */
+.panel,
+.stat-card {
+  min-width: 0;
+}
+
+/* Make media fit their container */
+img,
+svg {
+  max-width: 100%;
+}
+
+/* Allow long text to wrap */
+.panel,
+.stat-card {
+  overflow-wrap: anywhere;
 }
